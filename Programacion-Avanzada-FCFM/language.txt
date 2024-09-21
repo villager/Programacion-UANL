@@ -1,0 +1,6 @@
+TXT_NAME|Nombre|Name|0
+TXT_DATE|Fecha|Date|1
+TXT_SPECIE|Especie|Specie|2
+TXT_GENDER|Genero|Gender|3
+TXT_LOGIN|Inicio de sesion|Login|4
+TXT_PASS|Contraseña|Password|5
