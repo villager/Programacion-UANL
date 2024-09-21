@@ -1,0 +1,62 @@
+<nav class="menu">
+    <section class="menu__container">
+        <div class="full-box">
+            <a href="/home"><i class="fa fa-house-chimney"></i></a>
+        </div>
+        <p><%= name %></p>
+        <ul class="menu__links">
+            <% if (rank === 'admin') { %>
+            <li class="menu__item menu__item--show">
+                <a href="#" class="menu__link">Usuarios</a>
+
+                <ul class="menu__nesting">
+                    <li>
+                        <a href="/admin/users/list" class="menu__link menu__link--inside">Listado</a>
+                    </li>
+                    <li>
+                        <a href="/admin/users/search" class="menu__link menu__link--inside">Buscar</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="menu__item menu__item--show">
+                <a href="#" class="menu__link">Cursos</a>
+
+                <ul class="menu__nesting">
+                    <li>
+                        <a href="/items/list" class="menu__link menu__link--inside">Listado</a>
+                    </li>
+                </ul>
+            </li>
+            <%} %>
+            <% if (rank !== 'user') { %>
+            <li class="menu__item menu__item--show">
+                <a href="#" class="menu__link">Enseñanza</a>
+
+                <ul class="menu__nesting">
+                    <li>
+                        <a href="/items/new" class="menu__link menu__link--inside">Crear</a>
+                    </li>
+                    <li>
+                        <a href="/items/ownlist" class="menu__link menu__link--inside">Listado</a>
+                    </li>
+                </ul>
+            </li>
+            <%} %>
+            <li class="menu__item menu__item--show">
+                <a href="#" class="menu__link">Aprendizaje</a>
+
+                <ul class="menu__nesting">
+                    <li>
+                        <a href="/items/userbag" class="menu__link menu__link--inside">Listado</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+        <div class="full-box">
+            <a href="/update"><i class="fa fa-user"></i></a>
+            <a href="/logout"><i class="fa fa-power-off"></i></a>
+        </div>
+    </section>
+</nav>

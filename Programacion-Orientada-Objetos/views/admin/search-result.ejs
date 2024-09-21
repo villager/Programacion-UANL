@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <title>Busqueda de usuarios</title>
+       <%- include('../partials/head'); %>
+       <link rel="stylesheet" href="../../css/estilos.css">
+   </head>
+   <body>
+      <header>
+         <%- include('../partials/header'); %>
+      </header>
+            <!-- Page header -->
+            <div class="full-box page-header">
+               <h3 class="text-left">
+                  <i class="fa fa-search"></i> &nbsp; BUSQUEDA DE USUARIOS
+               </h3>
+            </div>
+            <!-- Content here-->
+            <form class="form-neon" action="">
+               <table>
+                  <td>
+                     <div class="grupo">
+                        <input type="text" name="lookingFor" id="lookingFor" required><span class="barra"></span>
+                        <label for="">¿Qué cliente estas buscando?</label>
+                    </div> 
+                  </td>
+                  <td>
+                     <div class="group">
+                        <label class="barra" for="">Buscar Por:</label><br>
+                        
+                        <select name="searchBy" id="searchBy" class="custom-select">
+                           <option value="id">ID</option>
+                           <option value="email">Correo</option>
+                           <option value="rank">Rango</option>
+                           <option value="name">Nombre</option>
+                        </select>
+                        </div>   
+                  </td>
+               </table>
+                    
+               <p class="text-center" style="margin-top: 40px;">
+                  <button type="submit" class="blue_button"><i class="fas fa-search"></i> &nbsp; BUSCAR</button>
+               </p>
+            </form>
+            <form class="form-neon" action="">
+               <input type="hidden" name="" value="">
+               <p class="text-center" style="margin-top: 20px;">
+                  <button type="submit" class="red_button"><i class="far fa-trash-alt"></i> &nbsp; ELIMINAR BÚSQUEDA</button>
+               </p>
+            </form>
+            <% if (userlist.length === 0)  {%>
+               <p class="text-justify"> No hubo resultados</p>
+               <%} else { %>
+               <table class="table_userlist">
+                  <thead>
+                     <tr>
+                        <th>ID</th>
+                        <th>Correo</th>
+                        <th>Nombre</th>
+                        <th>Rango</th>
+                        <th>Editar</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <% for(var i = 0; i < userlist.length; ++i) {%>
+                     <tr class="<%=userlist[i].rank%>">
+                        <td><%=userlist[i].id%></td>
+                        <td><%=userlist[i].email%></td>
+                        <td><%=userlist[i].name%> <%=userlist[i].lastname%></td>
+                        <td><%=userlist[i].rank === 'admin' ? 'Administrador' : userlist[i].rank === 'operator' ? 'Operador' : 'Usuario' %></td>
+                        <td>
+                           <a href="/admin/users/update?id=<%=userlist[i].id%>" class="btn btn-success">
+                           <i class="fas fa-sync-alt"></i>	
+                           </a>
+                        </td>
+                     </tr>
+                     <% } %>
+                  </tbody>
+               </table>
+               <%} %>
+         </section>
+      </main>
+      <script defer>$('#searchBy').val("<%= searchBy %>");</script>
+      <script defer>$('#lookingFor').val("<%= lookingFor %>");</script>
+      <script>
+         $("delete-search").click(() => {
+             window.location.href = "/admin/users/search";
+         });
+      </script>
+      <script src="../../js/main.js" ></script>
+   </body>
+</html>

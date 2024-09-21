@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <title>Busqueda de usuarios</title>
+       <%- include('../partials/head'); %>
+       <link rel="stylesheet" href="../../css/estilos.css">
+   </head>
+   <body>
+      <header>
+         <%- include('../partials/header'); %>
+      </header>
+            <!-- Page header -->
+            <div class="full-box page-header">
+               <h3 class="text-left">
+                  <i class="fa fa-search"></i> &nbsp; BUSQUEDA DE USUARIOS
+               </h3>
+            </div>
+            <!-- Content here-->
+               <form class="form-neon" action="">
+                  <table>
+                     <td>
+                        <div class="grupo">
+                           <input type="text" name="lookingFor" id="lookingFor" required><span class="barra"></span>
+                           <label for="">¿Qué cliente estas buscando?</label>
+                       </div> 
+                     </td>
+                     <td>
+                        <div class="group">
+                           <label class="barra" for="">Buscar Por:</label><br>
+                           
+                           <select name="searchBy" id="searchBy" class="custom-select">
+                              <option value="id">ID</option>
+                              <option value="email">Correo</option>
+                              <option value="rank">Rango</option>
+                              <option value="name">Nombre</option>
+                           </select>
+                           </div>   
+                     </td>
+                  </table>
+                       
+                  <p class="text-center" style="margin-top: 40px;">
+                     <button type="submit" class="blue_button"><i class="fas fa-search"></i> &nbsp; BUSCAR</button>
+                  </p>
+               </form>
+         </section>
+      </main>
+   </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Listado</title>
+    <%- include('../partials/head'); %>
+	<link rel="stylesheet" href="../css/estilos.css">
+
+</head>
+<body>
+	<header>
+		<%- include('../partials/header'); %>
+	</header>
+        <% if (items.length === 0)  {%>
+        <p class="text-justify"> No hubo resultados</p>
+        <%} else { %>
+        <table class="table_userlist">
+           <thead>
+              <tr>
+                 <th>ID</th>
+                 <th>Nombre</th>
+                 <th>Editar</th>
+              </tr>
+           </thead>
+           <tbody>
+              <% for(var i = 0; i < items.length; ++i) {%>
+              <tr class="user">
+                 <td><%=items[i].id%></td>
+                 <td><%=items[i].name%></td>
+                 <td>
+                    <a href="/items/update?id=<%=items[i].id%>" class="btn btn-success">
+                    <i class="fas fa-sync-alt"></i>	
+                    </a>
+                 </td>
+              </tr>
+              <% } %>
+           </tbody>
+        </table>
+        <%} %>
+</body>

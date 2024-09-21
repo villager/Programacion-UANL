@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Listado</title>
+    <%- include('../partials/head'); %>
+	<link rel="stylesheet" href="../css/estilos.css">
+
+</head>
+<body>
+	<header>
+		<%- include('../partials/header'); %>
+	</header>
+	<div>
+        <form class="form-neon" id="form" action="/items/creating" method="post">
+        <div class="form">
+            <h1>Crear Curso</h1>
+            <div class="grupo">
+                <input type="name" name="name" id="name" required><span class="barra"></span>
+                <label for="">Titulo</label>
+            </div>
+			<div class="grupo">
+				<label for="">Descripcion</label><br><br>
+				<textarea id="desc" name="desc"></textarea>
+			</div>
+			<input type="hidden" name="price" id="price" value="0">
+			<p class="text-center" style="margin-top: 40px;">
+				<button class="blue_button" type="submit">Crear</button>
+			</p>
+        </div>
+    </form>
+</body>
+</html>

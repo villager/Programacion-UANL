@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Actualizar</title>
+        <link rel="stylesheet" href="../css/estilos.css">
+		<%- include('../partials/head'); %>
+	</head>
+<body>
+	<header>
+		<%- include('../partials/header'); %>
+	</header>
+    <main>
+		<!-- Page header -->
+        <div class="page-header">
+            <h3 class="text-left">
+                <i class="fas fa-sync-alt fa-fw"></i> &nbsp; ACTUALIZAR USUARIO
+            </h3>
+        </div>
+    
+    	<div class="container-fluid">
+            <form id="form" action="/updating?id=<%= data.id %> " method="post" class="form-neon" autocomplete="off">
+                <fieldset>
+                    <legend><i class="fas fa-user"></i> &nbsp; Información básica</legend>
+                            <label class="barra" for="">ID</label>
+                            <input disabled type="text" class="form-control" name="id" id="id" value="<%= data.id %>" maxlength="40">
+                            <table>
+                                <td>
+                                    <div class="grupo">
+                                        <input  maxlength="40" value="<%= data.name %>" type="text" name="name" id="name" required><span class="barra"></span>
+                                        <label for="">Nombre</label>
+                                    </div> 
+                                </td>
+                                <td>
+                                    <div class="grupo">
+                                        <input  value="<%= data.lastname %>" maxlength="40" type="text" name="lastname" id="lastname" required><span class="barra"></span>
+                                        <label for="">Apellido</label>
+                                    </div> 
+                                </td>
+                            </table>
+                            <div class="grupo">
+                                <input value="<%= data.email %>" maxlength="150" type="text" name="email" id="email" required><span class="barra"></span>
+                                <label for="">Correo</label>
+                            </div>
+                            <input type="hidden" name="self" value="true" id="self">
+                </fieldset>
+                <p class="text-center" style="margin-top: 40px;">
+                    <button type="submit" class="blue_button"><i class="fas fa-sync-alt"></i> &nbsp; ACTUALIZAR</button>
+                </p>
+            </form>
+                <details class="form-neon">
+                <summary class="text-center no-icons">Cambiar Contraseña</summary>
+                <form id="form" action="/updating?id=<%= data.id %> " method="post" autocomplete="off">
+                <fieldset>
+                <table>
+                    <td>
+                        <div class="grupo">
+                            <input type="password" name="password" id="password" required>
+                            <span class="barra"></span>
+                            <label for="">Nueva</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="grupo">
+                            <input type="password" name="cpassword" id="cpassword" required>
+                            <span class="barra"></span>
+                            <label for="">Confirmacion</label>
+                        </div>
+                    </td>
+                    <input type="hidden" name="self" value="true" id="self">
+                </table>
+                </fieldset>
+                <p class="text-center" style="margin-top: 40px;">
+                    <button type="submit" class="blue_button"><i class="fas fa-sync-alt"></i> &nbsp; ACTUALIZAR</button>
+                </p>
+                </form>
+                </details>
+            </div>
+            <!--- Eliminar Boton -->
+            <div class="container-fluid">
+                <form class="form-neon" action="/delete" method="post">
+                   <input type="hidden" name="delete" value="self">
+                        <p class="text-center" style="margin-top: 20px;">
+                            <button type="submit" class="red_button"><i class="far fa-trash-alt"></i> &nbsp; ELIMINAR CUENTA</button>
+                        </p>
+                </form>
+            </div>
+        </div>
+
+		</section>
+	</main>
+	<script src="./js/main.js" ></script>
+	</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Inicio</title>
+	<style>
+		@import url("https://gitcdn.link/cdn/villager/styles/main/bootstrap.min.css.map");
+		@import url("https://gitcdn.link/cdn/villager/styles/main/bootstrap.min.css");
+		@import url("https://gitcdn.link/cdn/villager/styles/main/sweetalert2.min.css");
+		@import url("https://gitcdn.link/cdn/villager/styles/main/bootstrap-material-design.min.css");
+		@import url("https://gitcdn.link/cdn/villager/styles/main/all.css");
+	</style>
+	<script src="https://gitcdn.link/cdn/villager/lib/main/sweetalert2.min.js" ></script>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+	
+	<!-- Main container -->
+	<main class="full-box main-container">
+		<!-- Nav lateral -->
+		<section class="full-box nav-lateral">
+			<div class="full-box nav-lateral-bg show-nav-lateral"></div>
+			<div class="full-box nav-lateral-content">
+				<figure class="full-box nav-lateral-avatar">
+					<i class="far fa-times-circle show-nav-lateral"></i>
+					<img src="https://i.imgur.com/7zUU3Rf.png" class="img-fluid" alt="Avatar">
+					<figcaption class="roboto-medium text-center">
+						<%= name %> <br><small class="roboto-condensed-light"><%= rank %></small>
+					</figcaption>
+				</figure>
+				<div class="full-box nav-lateral-bar"></div>
+				<nav class="full-box nav-lateral-menu">
+					<ul>
+						<li>
+							<a href="/home"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Inicio</a>
+						</li>
+						<% if (rank === 'Operador') { %>
+							<li>
+								<a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Cursos<i class="fas fa-chevron-down"></i></a>
+								<ul>
+									<li>
+										<a href="/items/new"><i class="fas fa-plus fa-fw"></i> &nbsp; Crear</a>
+									</li>
+									<li>
+										<a href="/items/mine"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Listado</a>
+									</li>
+								</ul>
+							</li>
+						<%} %>
+						    <li>
+                                <a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Aprendizaje <i class="fas fa-chevron-down"></i></a>
+                                <ul>
+                                    <li>
+                                        <a href="/items/list"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Listado</a>
+                                    </li>
+                                    <li>
+                                        <a href="/items/added"><i class="fas fa-search fa-fw"></i> &nbsp; Agregados</a>
+                                    </li>
+                                </ul>
+                            </li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<!-- Page content -->
+		<section class="full-box page-content">
+			<nav class="full-box navbar-info">
+				<a href="/update">
+					<i class="fas fa-user-cog"></i>
+				</a>
+				<a href="#" class="btn-exit-system">
+					<i class="fas fa-power-off"></i>
+				</a>
+			</nav>
+
+			<!-- Page header -->
+			<div class="full-box page-header">
+				<h3 class="text-left">
+					<i class="fab fa-dashcube fa-fw"></i> &nbsp; INICIO
+				</h3>
+				<p class="text-justify"></p>
+			</div>
+			
+			<!-- Content -->
+			<table>
+				<td>
+					<div class="carrousel">
+						<div class="grande">
+							<img src="https://i.imgur.com/iNhQqrh.jpg" alt="Imagen 1" class="img">
+							<img src="https://i.imgur.com/VyEPZlH.jpg" alt="Imagen 2" class="img">
+						</div>
+				
+						<ul class="puntos">
+							<li class="punto activo"></li>
+							<li class="punto"></li>
+						</ul>
+					</div>
+				</td>
+				<td>
+					<div class="carrousel">
+						<div class="grande">
+							<img src="https://i.imgur.com/iNhQqrh.jpg" alt="Imagen 1" class="img">
+							<img src="https://i.imgur.com/VyEPZlH.jpg" alt="Imagen 2" class="img">
+						</div>
+				
+						<ul class="puntos">
+							<li class="punto activo"></li>
+							<li class="punto"></li>
+						</ul>
+					</div>
+				</td>
+			</table>
+		
+			<div>
+			</div>
+
+		</section>
+	</main>
+	<script src="https://gitcdn.link/cdn/villager/lib/main/bootstrap.min.js.map"></script>
+	<script src="https://gitcdn.link/cdn/villager/lib/main/jquery-3.4.1.min.js" ></script>
+	<script src="https://gitcdn.link/cdn/villager/lib/main/popper.min.js" ></script>
+	<script src="https://gitcdn.link/cdn/villager/lib/main/bootstrap.min.js" ></script>
+	<script src="https://gitcdn.link/cdn/villager/lib/main/jquery.mCustomScrollbar.concat.min.js" ></script>
+	<script src="https://gitcdn.link/cdn/villager/lib/main/bootstrap-material-design.min.js" ></script>
+	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+
+	<script src="./js/main.js" ></script>
+	</body>
+</html>

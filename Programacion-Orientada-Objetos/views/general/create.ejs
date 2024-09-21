@@ -1,0 +1,57 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>    
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div>
+        <form id="form" action="/creating" method="post">
+        <div class="form">
+            <h1>Crear Cuenta</h1>
+            <div class="grupo">
+                <input type="email" name="email" id="email" required><span class="barra"></span>
+                <label for="">Correo</label>
+            </div>
+            <table>
+                <td>
+                    <div class="grupo">
+                        <input type="text" name="name" id="name" required><span class="barra"></span>
+                        <label for="">Nombre</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="grupo">
+                        <input type="text" name="lastname" id="lastname" required><span class="barra"></span>
+                        <label for="">Apellido</label>
+                    </div>
+                </td><tr></tr>
+                <td>
+                    <div class="grupo">
+                        <input name="password" name="password" type="password" id="password" required>
+                        <span class="barra"></span>
+                        <label for="">Contraseña</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="grupo">
+                        <input type="password" name="cpassword" id="cpassword" required>
+                        <span class="barra"></span>
+                        <label for="">Confirmar Contraseña</label>
+                    </div>                    
+                </td>
+            </table>
+            <p class="warnings" id="warnings"></p>
+            <button type="submit">Registrarte</button>
+            <script src="/js/valid_creation.js"></script>
+
+        </div>
+    </form>
+    <div class="pie-form">
+        <a href="/login">¿Tienes cuenta? Ingresa</a>
+    </div>
+    </div>
+
+</body>
+</html>

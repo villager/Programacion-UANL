@@ -1,0 +1,35 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>    
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div>
+        <form id="form" action="/auth" method="post">
+        <div class="form">
+            <h1>Bienvenido!</h1>
+            <div class="grupo">
+                <input type="text" name="email" id="email" required><span class="barra"></span>
+                <label for="">Correo</label>
+            </div>
+            <div class="grupo">
+                <input type="password" name="password" id="password" required>
+                <span class="barra"></span>
+                <label for="">Contraseña</label>
+            </div>
+            <p class="warnings" id="warnings"><%= warning %></p>
+            <button type="submit">Ingresar</button>
+            <script src="/js/valid_login.js"></script>
+
+        </div>
+    </form>
+    <div class="pie-form">
+        <a href="#">¿Perdiste tu contraseña?</a>
+        <a href="/create">¿No tienes Cuenta? Registrate</a>
+    </div>
+    </div>
+
+</body>
+</html>

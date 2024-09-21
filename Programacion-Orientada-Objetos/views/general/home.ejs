@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Inicio</title>
+    <%- include('../partials/head'); %>
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<header>
+		<%- include('../partials/header'); %>
+	</header>
+	<section>
+	<button class="pre-btn"><img src="css/arrow.png" alt=""></button>
+	<button class="nxt-btn"><img src="css/arrow.png" alt=""></button>
+	<div class="courses-container">
+	<% for(var i = 0; i < items.length; ++i) {%>
+		<form class="card" id="form" action="/items/adding?id=<%=items[i].id%>" method="post">
+			<div class="info">
+				<h2 class="title"><%=items[i].name%></h2>
+				<p class="description"><%=items[i].des%></p>
+				<span class="price"><%= items[i].price === 0 ? "Gratis" : items[i].price%></span>
+				<button class="blue_button" type="submit">Agregar</button>
+			</div>
+		</form>
+	<% } %>
+	</div>
+</section>
+	<script src="./js/main.js" ></script>
+</body>
+</html>
