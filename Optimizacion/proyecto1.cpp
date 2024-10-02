@@ -7,8 +7,9 @@ using namespace std;
 const int MAX = 20; // Tamaño máximo de la tabla Simplex
 
 struct Simplex {
-    unsigned int numVariables, numRestricciones;
+    unsignedint numVariables, numRestricciones;
     double tabla[MAX][MAX]; // Tabla simplex
+    int dirRestriccion[MAX]; // Donde guardar la direccion de las restricciones
     int base[MAX];          // Variables básicas
     bool multiple, ilimitada, noFactible;
 
@@ -24,29 +25,6 @@ struct Simplex {
                 tabla[i][j] = 0;
             }
             base[i] = 0;
-        }
-    }
-
-    void ingresarDatos() {
-        cout << "Ingrese los coeficientes de la función objetivo (inverso para maximizar):\n";
-        for (int i = 1; i <= numVariables; i++) {
-            cin >> tabla[0][i];
-            tabla[0][i] *= -1; // Para maximizar
-        }
-
-        cout << "Ingrese las restricciones:\n";
-        for (int i = 1; i <= numRestricciones; i++) {
-            cout << "Restricción " << i << ":\n";
-            for (int j = 1; j <= numVariables; j++) {
-                cin >> tabla[i][j];
-            }
-            cin >> tabla[i][0]; // Lado derecho (b)
-        }
-
-        // Variables holgura
-        for (int i = 1; i <= numRestricciones; i++) {
-            tabla[i][numVariables + i] = 1;
-            base[i] = numVariables + i; // Inicialmente variables básicas son holgura
         }
     }
 
@@ -170,8 +148,27 @@ int main() {
     int numVariables, numRestricciones;
     cout << "Ingrese el número de variables y restricciones: ";
     cin >> numVariables >> numRestricciones;
-
     Simplex simplex(numVariables, numRestricciones);
+    cout << "Ingrese los coeficientes de la función objetivo:\n";
+    for (int i = 1; i <= numVariables; i++) {
+        cin >> tabla[0][i];
+        tabla[0][i] *= -1; // Para maximizar
+    }
+    cout << "Ingrese las restricciones:\n";
+    for (int i = 1; i <= numRestricciones; i++) {
+        cout << "Restricción " << i << ":\n";
+        for (int j = 1; j <= numVariables; j++) {
+            cin >> tabla[i][j];
+        }
+        cin >> tabla[i][0]; // Lado derecho (b)
+        cout << "¿La restriccion es mayor que ≤ (digita 1) o ≥ (digita 2)";
+        cin >> simplex.dirRestriccion[i];
+    }
+    // Variables holgura
+    for (int i = 1; i <= numRestricciones; i++) {
+        tabla[i][numVariables + i] = 1;
+        base[i] = numVariables + i; // Inicialmente variables básicas son holgura
+    }
     simplex.ingresarDatos();
     simplex.imprimirTabla();
     simplex.resolverSimplex();
